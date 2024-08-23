@@ -91,6 +91,5 @@
     "react-router-dom": "^6.23.1",
     "redux-saga": "^1.3.0",
     "unchanged": "^2.2.1"
-  },
-  "homepage": "https://https://aleksandranisenko.github.io/pizza-shop/"
+  }
 }
