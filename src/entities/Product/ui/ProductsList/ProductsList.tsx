@@ -1,9 +1,9 @@
 import React, { memo, ReactElement } from 'react';
 import cn from 'clsx';
-import { useTranslation } from 'react-i18next';
 import { Product } from 'src/entities/Product';
 import { ProductListItem } from '../ProductListItem';
 import s from './ProductsList.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface ProductsListProps {
   products: Product[] | null;

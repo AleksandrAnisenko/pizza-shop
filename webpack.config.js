@@ -16,7 +16,7 @@ module.exports = (_, args) => {
   const isDev = args.mode === 'development';
   const publicPath = isDev
     ? `http://${host}:${port}/`
-    : undefined  /* <- прописать данные своего github */
+    : undefined; /* <- прописать данные своего github */
 
   return {
     entry: './index.tsx',

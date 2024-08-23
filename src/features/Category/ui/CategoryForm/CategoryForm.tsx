@@ -1,7 +1,6 @@
 import React, { memo, useCallback, useEffect, useMemo } from 'react';
 import { useFormik } from 'formik';
 import { FormikHelpers } from 'formik/dist';
-import { useTranslation } from 'react-i18next';
 import { useFetchCategoryByIdQuery } from 'src/entities/Category/api/categoriesApi';
 import { CategoryParams } from 'src/entities/Category/model/types/categoriesTypes';
 import {
@@ -15,6 +14,9 @@ import { Form } from 'src/shared/ui/Form';
 import { Heading } from 'src/shared/ui/Heading';
 import { Text } from 'src/shared/ui/Text';
 import { TextField } from 'src/shared/ui/TextField';
+import { useTranslation } from 'react-i18next';
+
+type CategoryFormErrors = Record<keyof CategoryParams, string>;
 
 interface CategoryFormProps {
   id?: string;
@@ -85,7 +87,7 @@ export const CategoryForm = memo(({ onSubmitAction, id, className }: CategoryFor
     [setFieldValue]
   );
 
-  if (categoryLoading) return <Text>{t('Загружаем данные категории')}...</Text>;
+  if (categoryLoading) return <Text>Загружаем данные категории...</Text>;
   if (categoryError) return <Text>{categoryError as string}</Text>;
 
   return (
@@ -112,7 +114,7 @@ export const CategoryForm = memo(({ onSubmitAction, id, className }: CategoryFor
       <Button
         label={t('Сохранить')}
         onClick={submitForm}
-        variant="secondary"
+        variant='secondary'
         disabled={categoryLoading || createCategoryLoading || editCategoryLoading}
       />
     </Form>

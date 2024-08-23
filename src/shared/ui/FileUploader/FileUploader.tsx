@@ -1,11 +1,11 @@
 import React, { ChangeEvent, memo, useEffect } from 'react';
 import cn from 'clsx';
-import { useTranslation } from 'react-i18next';
 import { useUploadFileMutation } from 'src/shared/api/fileUploadApi';
 import { PicWrapper } from 'src/shared/ui/PicWrapper';
 import { Text } from 'src/shared/ui/Text';
 import EditIcon from 'src/shared/assets/icons/Edit.svg';
 import s from './FileUploader.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface FileUploaderProps {
   title?: string;
@@ -17,7 +17,13 @@ interface FileUploaderProps {
 }
 
 export const FileUploader = memo(
-  ({ pic, picProportion = '1/1', disabled, onUpload, className }: FileUploaderProps) => {
+  ({
+    pic,
+    picProportion = '1/1',
+    disabled,
+    onUpload,
+    className,
+  }: FileUploaderProps) => {
     const [uploadFile, { data, isLoading, error }] = useUploadFileMutation();
     const { t } = useTranslation();
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

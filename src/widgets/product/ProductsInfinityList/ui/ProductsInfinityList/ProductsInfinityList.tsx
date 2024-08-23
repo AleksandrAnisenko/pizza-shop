@@ -1,5 +1,4 @@
 import React, { memo, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   ProductsList,
   selectCatalogFilter,
@@ -12,6 +11,7 @@ import { CartButton } from 'src/features/Cart';
 import { useAppDispatch, useAppSelector, useInfiniteScroll } from 'src/shared/lib/hooks';
 import { Button } from 'src/shared/ui/Button';
 import s from '../../styles/ProductsInfinityList.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface ProductsInfinityListProps {
   className?: string;

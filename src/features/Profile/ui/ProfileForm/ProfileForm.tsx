@@ -61,7 +61,7 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
       <Button
         label={t('Сохранить изменения')}
         onClick={submitForm}
-        variant="secondary"
+        variant='secondary'
         full={false}
         disabled={isSaving || isLoading}
       />

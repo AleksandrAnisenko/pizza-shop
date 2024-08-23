@@ -36,7 +36,7 @@ export const TranslationsProvider = ({
 
   const translationsValue: TranslationsContextProps = useMemo(
     () => ({ ...i18n, changeLanguage }),
-    [changeLanguage, i18n]
+    [changeLanguage, i18n, i18n.language]
   );
 
   return (

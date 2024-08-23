@@ -1,5 +1,4 @@
 import React, { memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useFetchCategoryByIdQuery } from 'src/entities/Category/api/categoriesApi';
 import { getRouteCategories } from 'src/shared/consts/router';
@@ -7,6 +6,7 @@ import { Button } from 'src/shared/ui/Button';
 import { ConfirmModal } from 'src/shared/ui/modals/ConfirmModal';
 import CloseIcon from 'src/shared/assets/icons/Trash.svg';
 import { useDeleteCategoryMutation } from '../../api/categoryMutationApi';
+import { useTranslation } from 'react-i18next';
 
 interface DeleteCategoryProps {
   id: string;
@@ -37,7 +37,7 @@ export const DeleteCategory = memo(({ id, className }: DeleteCategoryProps) => {
         onClick={open}
       />
     ),
-    [t]
+    []
   );
 
   if (categoryLoading || isLoading || data || !category) return null;

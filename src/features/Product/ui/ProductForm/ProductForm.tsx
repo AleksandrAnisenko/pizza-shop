@@ -1,6 +1,5 @@
 import React, { memo, useEffect, useMemo } from 'react';
 import { useFormik } from 'formik/dist';
-import { useTranslation } from 'react-i18next';
 import { useFetchProductByIdQuery } from 'src/entities/Product';
 import { ProductParams } from 'src/entities/Product/model/types/productTypes';
 import { Button } from 'src/shared/ui/Button';
@@ -11,6 +10,7 @@ import { useCreateUpdateProductMutation } from '../../api/productMutationApi';
 import { validate } from '../../lib/utils/validateProductForm';
 import { ProductCategorySelect } from '../ProductCategorySelect';
 import { ProductField } from '../ProductField';
+import { useTranslation } from 'react-i18next';
 
 interface ProductFormProps {
   id?: string;
@@ -165,7 +165,7 @@ export const ProductForm = memo(({ onSubmitAction, id, className }: ProductFormP
       <Button
         label={t('Сохранить')}
         onClick={submitForm}
-        variant="secondary"
+        variant='secondary'
         disabled={productIsLoading || editProductIsLoading}
       />
     </Form>

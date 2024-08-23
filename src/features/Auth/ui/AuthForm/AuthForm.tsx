@@ -67,7 +67,7 @@ export const AuthForm = memo(({ formManager, title, className }: AuthFormProps) 
           {status}
         </Text>
       )}
-      <Button label={title} variant="secondary" onClick={submitForm} />
+      <Button label={title} variant='secondary' onClick={submitForm} />
     </Form>
   );
 });
