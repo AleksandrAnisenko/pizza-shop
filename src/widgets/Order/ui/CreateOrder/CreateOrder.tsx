@@ -1,5 +1,6 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useFetchProfileQuery } from 'src/entities/Profile';
 import { clearCart, selectCartProductsList } from 'src/features/Cart';
@@ -9,7 +10,6 @@ import { Button } from 'src/shared/ui/Button';
 import { Text } from 'src/shared/ui/Text';
 import { useCreateOrderMutation } from '../../api/orderApi';
 import s from './CreateOrder.module.scss';
-import { useTranslation } from 'react-i18next';
 
 interface CreateOrderProps {
   className?: string;
@@ -46,7 +46,13 @@ export const CreateOrder = memo(({ className }: CreateOrderProps) => {
           {error as string}
         </Text>
       )}
-      <Button className={s.btn} label={t('Оформить Заказ')} variant='secondary' onClick={handleClick} disabled={isLoading} />
+      <Button
+        className={s.btn}
+        label={t('Оформить Заказ')}
+        variant="secondary"
+        onClick={handleClick}
+        disabled={isLoading}
+      />
     </div>
   );
 });

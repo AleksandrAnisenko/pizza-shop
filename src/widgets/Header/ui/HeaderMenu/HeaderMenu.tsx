@@ -19,7 +19,7 @@ export const HeaderMenu = memo((props: HeaderMenuProps) => {
   return (
     <nav className={className}>
       <ul className={menuStyles.menu}>
-        {MENU_LIST.map(({ name, link, id, icon }) => (
+        {MENU_LIST.map(({ name, link, id }) => (
           <li key={id}>
             <NavLink className={linkClassNames} to={link}>
               {t(name)}

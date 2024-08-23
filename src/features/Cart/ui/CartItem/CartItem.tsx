@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { RemoveProductFromCart } from 'src/features/Cart';
 import { getRouteProduct } from 'src/shared/consts/router';
 import { PicWrapper } from 'src/shared/ui/PicWrapper';
 import s from './CartItem.module.scss';
-import { useTranslation } from 'react-i18next';
 
 export interface CartItemProps {
   id: string;
@@ -29,7 +29,9 @@ export const CartItem = memo(({ id, title, desc, count, price, pic, className }:
         </div>
       </Link>
       <div className={s.count}>{count}</div>
-      <div className={s.price}>{price * count} {t('Руб')}.</div>
+      <div className={s.price}>
+        {price * count} {t('Руб')}.
+      </div>
       <RemoveProductFromCart id={id} removeAll />
     </div>
   );

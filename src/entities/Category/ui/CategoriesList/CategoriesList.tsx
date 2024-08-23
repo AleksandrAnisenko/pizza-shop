@@ -1,13 +1,12 @@
 import React, { memo, useMemo } from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Button } from 'src/shared/ui/Button';
 import { Heading } from 'src/shared/ui/Heading';
 import { PicWrapper } from 'src/shared/ui/PicWrapper';
 import { Text } from 'src/shared/ui/Text';
 import { useFetchCategoriesQuery } from '../../api/categoriesApi';
 import s from './CategoriesList.module.scss';
-import { useTranslation } from 'react-i18next';
 
 interface CategoriesListProps {
   className?: string;
@@ -32,7 +31,7 @@ export const CategoriesList = memo(({ className }: CategoriesListProps) => {
       default:
         return null;
     }
-  }, [categories, error, isLoading]);
+  }, [categories, error, isLoading, t]);
 
   if (text) return <Text>{text}</Text>;
 

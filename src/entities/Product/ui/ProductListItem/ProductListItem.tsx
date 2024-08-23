@@ -1,11 +1,11 @@
 import React, { memo, ReactElement } from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Product } from 'src/entities/Product';
 import { getRouteProduct } from 'src/shared/consts/router';
 import { PicWrapper } from 'src/shared/ui/PicWrapper';
 import s from './ProductListItem.module.scss';
-import { useTranslation } from 'react-i18next';
 
 export interface ProductListItemProps {
   product: Product;
@@ -26,8 +26,14 @@ export const ProductListItem = memo(
         </div>
         <div className={s.content}>
           <div className={s.prices}>
-            <ins className={s.price}>{price} {t('Руб')}.</ins>
-            {oldPrice && <del className={s.oldPrice}>{oldPrice} {t('Руб')}.</del>}
+            <ins className={s.price}>
+              {price} {t('Руб')}.
+            </ins>
+            {oldPrice && (
+              <del className={s.oldPrice}>
+                {oldPrice} {t('Руб')}.
+              </del>
+            )}
           </div>
           <div className={s.about}>
             <h3 className={s.title}>{name}</h3>

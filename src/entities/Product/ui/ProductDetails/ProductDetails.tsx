@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Category } from 'src/entities/Product';
 import { getRouteCategory } from 'src/shared/consts/router';
 import { Heading } from 'src/shared/ui/Heading';
 import noImage from 'src/shared/assets/img/no-product.svg?url';
 import s from './ProductDetails.module.scss';
-import { useTranslation } from 'react-i18next';
 
 interface ProductDetailsProps {
   title: string;
@@ -46,7 +46,9 @@ export const ProductDetails = ({
           {title}
         </Heading>
         {desc && <p className={s.desc}>{desc}</p>}
-        <div className={s.price}>{price} {t('Руб')}.</div>
+        <div className={s.price}>
+          {price} {t('Руб')}.
+        </div>
         <div className={s.cart}>{cartBtn}</div>
       </div>
     </div>

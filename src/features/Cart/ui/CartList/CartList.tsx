@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { Product } from 'src/entities/Product';
 import { useAppSelector } from 'src/shared/lib/hooks';
 import { useFetchCartProductsQuery } from '../../api/cartApi';
 import { selectCartIds, selectCartProducts } from '../../model/slices/CartSlice';
 import { CartItem } from '../CartItem';
 import s from './CartList.module.scss';
-import { useTranslation } from 'react-i18next';
 
 interface CartListProps {
   className?: string;

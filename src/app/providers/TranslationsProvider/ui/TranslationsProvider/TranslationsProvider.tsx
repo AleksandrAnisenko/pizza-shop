@@ -36,6 +36,7 @@ export const TranslationsProvider = ({
 
   const translationsValue: TranslationsContextProps = useMemo(
     () => ({ ...i18n, changeLanguage }),
+    // eslint-disable-next-line
     [changeLanguage, i18n, i18n.language]
   );
 
